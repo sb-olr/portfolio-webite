@@ -78,6 +78,7 @@ Secondary Color (Orange): #e0b354;
   button, .button {
     /* overwrites browser defaults and resets the border */
     border: none;
+    display: inline-block;
     /* takes the font from the outer container */
     font-family: inherit;
 
@@ -138,7 +139,9 @@ Secondary Color (Orange): #e0b354;
   .page-header {
     display: flex;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
   }
 
   page-header__item {
@@ -205,5 +208,50 @@ Secondary Color (Orange): #e0b354;
   }
   h1 {
     font-size: 22px;
+  }
+}
+
+
+
+/* Animation*/
+
+.skyline_container{
+  margin: 0;
+}
+
+img.balloon_red{
+  position: relative;
+  top: -580px;
+  left: -600px;
+}
+img.balloon_black{
+  position: relative;
+  top: -550px;
+  left: -500px;
+}
+
+.balloon_black {
+  animation: 70s black_balloon_moving infinite alternate linear;
+}
+
+.balloon_red {
+  animation: 20s red_balloon_moving infinite alternate linear;
+}
+
+@keyframes red_balloon_moving {
+  from {
+    transform: translate(0, 50px);
+  }
+  to {
+    transform: translate(200px, 40px);
+  }
+}
+
+@keyframes black_balloon_moving {
+  from {
+    transform: translate(200px, 50px);
+  }
+  to {
+        transform: translate(0, 50px);
   }
 }
