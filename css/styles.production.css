@@ -7,13 +7,16 @@ Secondary Color (Orange): #e0b354;
  */
  :root {
   --body-bgcolor: lightcyan;
-  --page-header-bgcolor: blue;
+  --page-header-bgcolor: rgba(224, 211, 22, 0.555);
   --primary-color: #150c6b;
-  --link-color: #201f29;
-  --visited-link-color: pink;
-  --active-link-color: orange;
+
+  --link-color: #1a104d;
+  --visited-link-color: rgb(199, 131, 142);
+  --active-link-color: rgb(46, 44, 40);
+
   --btn-bgcolor: #150c6b;
   --btn-color: white;
+  
   --div-border-color: #4287f5;
   --grid-item-color: lightgray;
   --main-font-weight: 600;
@@ -71,6 +74,7 @@ Secondary Color (Orange): #e0b354;
   a:hover, a:focus {
     /* No underlining when hovering over a link */
     text-decoration: none;
+    font-style: italic;
   }
 
   a:active {
