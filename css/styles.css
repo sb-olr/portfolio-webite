@@ -9,7 +9,7 @@ Secondary Color (Orange): #e0b354;
   --body-bgcolor: lightcyan;
   --primary-color: #150c6b;
   --link-color: #201f29;
-  --visited-link-color: pink;
+  --visited-link-color: pink; 
   --active-link-color: orange;
   --btn-bgcolor: #150c6b;
   --btn-color: white;
@@ -40,26 +40,28 @@ Secondary Color (Orange): #e0b354;
     line-height: 1.6;
 
   }
-  
+
   h1 {
     font-size: var(--h1-font-size);
     font-weight: var(--h-font-weight);
   }
-  
+
   h2 {
     font-size: var(--h2-font-size);
+
+    
     font-weight: var(--h-font-weight);
   }
-  
+
   h3 {
     font-size: var(--h3-font-size);
     font-weight: var(--h-font-weight);
   }
-  
+
   a {
     color: var(--link-color);
   }
-  
+
   a:visited {
     /* visited link */
     color: var(--visited-link-color);
@@ -69,7 +71,7 @@ Secondary Color (Orange): #e0b354;
     /* No underlining when hovering over a link */
     text-decoration: none;
   }
- 
+
   a:active {
     /* selected link */
     color: var(--active-link-color);
@@ -94,7 +96,7 @@ Secondary Color (Orange): #e0b354;
     border-bottom: 2px solid rgba(0, 0, 0, 0.3);
     transition: 0.5s opacity;
   }
-  
+
   button:hover, button:focus,
   .button:hover, .button:focus {
     /* lets the mouse appear as a hand when hovering over the button */
@@ -121,7 +123,7 @@ Secondary Color (Orange): #e0b354;
     max-width: 700px;
     margin: 0 auto;
   }
-  
+
   .profile__portrait {
     float: left;
     width: 250px;
@@ -172,7 +174,7 @@ Secondary Color (Orange): #e0b354;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
     margin: 0;
- 
+
   }
   .grid__item {
     background-color: var(--grid-item-color);
