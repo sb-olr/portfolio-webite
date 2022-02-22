@@ -7,9 +7,10 @@ Secondary Color (Orange): #e0b354;
  */
  :root {
   --body-bgcolor: lightcyan;
+  --page-header-bgcolor: blue;
   --primary-color: #150c6b;
   --link-color: #201f29;
-  --visited-link-color: pink; 
+  --visited-link-color: pink;
   --active-link-color: orange;
   --btn-bgcolor: #150c6b;
   --btn-color: white;
@@ -49,7 +50,7 @@ Secondary Color (Orange): #e0b354;
   h2 {
     font-size: var(--h2-font-size);
 
-    
+
     font-weight: var(--h-font-weight);
   }
 
@@ -144,6 +145,7 @@ Secondary Color (Orange): #e0b354;
     padding: 10px;
     padding-bottom: 20px;
     border-bottom: 1px solid #ddd;
+    background-color: var(--page-header-bgcolor);
   }
 
   page-header__item {
