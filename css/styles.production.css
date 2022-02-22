@@ -1,11 +1,4 @@
 /*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.3.6,
-* Autoprefixer: v10.3.1
-* Browsers: last 4 version
-*/ 
-
-/*
 Colors used
 
 Text Color (Dark Gray): #2b2b2b;
@@ -14,6 +7,7 @@ Secondary Color (Orange): #e0b354;
  */
  :root {
   --body-bgcolor: lightcyan;
+  --page-header-bgcolor: blue;
   --primary-color: #150c6b;
   --link-color: #201f29;
   --visited-link-color: pink;
@@ -32,8 +26,9 @@ Secondary Color (Orange): #e0b354;
  }
 
  * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  margin: 5px;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
  body {
@@ -54,6 +49,8 @@ Secondary Color (Orange): #e0b354;
 
   h2 {
     font-size: var(--h2-font-size);
+
+
     font-weight: var(--h-font-weight);
   }
 
@@ -81,11 +78,13 @@ Secondary Color (Orange): #e0b354;
     color: var(--active-link-color);
   }
 
-  button {
+  button, .button {
     /* overwrites browser defaults and resets the border */
     border: none;
+    display: inline-block;
     /* takes the font from the outer container */
     font-family: inherit;
+
     /* styles the background color, font color, and text decoration (underline, etc.) of the button */
     background-color: var(--btn-bgcolor);
     color: var(--btn-color);
@@ -93,15 +92,18 @@ Secondary Color (Orange): #e0b354;
     /*adds spacing to the button (this will be discussed more in-depth later) */
     padding: 10px;
     border-radius: 3px;
+    margin-left: 30px;
     /* gives the button a bottom border with a width of 2px, a type of solid, and a color in RGBA format */
     border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    transition: 0.5s opacity;
   }
 
-  button:hover, button:focus {
+  button:hover, button:focus,
+  .button:hover, .button:focus {
     /* lets the mouse appear as a hand when hovering over the button */
     cursor: pointer;
     /* reduces the opacity of the button to 80% */
-    opacity: 0.6;
+    opacity: 0.4;
   }
 
   .navigation-list {
@@ -132,34 +134,26 @@ Secondary Color (Orange): #e0b354;
 
   .page-footer {
     clear: both;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     text-align: center;
   }
 
   .page-header {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    background-color: var(--page-header-bgcolor);
   }
 
   page-header__item {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 200px;
-            flex: 0 1 200px;
+    flex: 0 1 200px;
   }
 
   .page-header__item:last-child {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    flex-grow: 1;
     text-align: right;
   }
 
@@ -177,10 +171,8 @@ Secondary Color (Orange): #e0b354;
 
 @supports (display: grid) {
   .grid {
-    display: -ms-grid;
     display: grid;
     /* grid-template-columns: 300px 300px 300px; fractions are better than pixels - they are responsive */
-    -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
     margin: 0;
@@ -194,10 +186,76 @@ Secondary Color (Orange): #e0b354;
     padding: 10px;
   }
   .grid__item:last-child {
-    -ms-grid-column: 3;
     grid-column: 3 / 3;
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 2;
     grid-row: 1 / 3;
   }
  }
+
+ /* Media queries */
+ @media all and (max-width: 575px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media all and (min-width: 575px) and (max-width: 750px){
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (max-width: 750px) {
+  .grid {
+    grid-gap: 10px;
+  }
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}
+
+
+
+/* Animation*/
+
+.skyline_container{
+  margin: 0;
+}
+
+img.balloon_red{
+  position: relative;
+  top: -580px;
+  left: -600px;
+}
+img.balloon_black{
+  position: relative;
+  top: -550px;
+  left: -500px;
+}
+
+.balloon_black {
+  animation: 70s black_balloon_moving infinite alternate linear;
+}
+
+.balloon_red {
+  animation: 20s red_balloon_moving infinite alternate linear;
+}
+
+@keyframes red_balloon_moving {
+  from {
+    transform: translate(0, 50px);
+  }
+  to {
+    transform: translate(200px, 40px);
+  }
+}
+
+@keyframes black_balloon_moving {
+  from {
+    transform: translate(200px, 50px);
+  }
+  to {
+        transform: translate(0, 50px);
+  }
+}
